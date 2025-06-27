@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1061612932446",
+    "project_id": "pocketpay-97b3c",
+    "storage_bucket": "pocketpay-97b3c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061612932446:android:3c4af8673be16a020e53cf",
+        "android_client_info": {
+          "package_name": "com.pocketpay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgITVcw4DHt7g0gDnUw7MZ3nCok9KYCWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
