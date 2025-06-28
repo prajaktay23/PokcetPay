@@ -6,7 +6,7 @@ const Headers = (props: any) => {
   const onPress = props.onPress;
 
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 16 }}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
       <TouchableOpacity onPress={onPress}>
         <Image source={require('../assets/left-arrow.png')} style={{ height: 24, width: 24 }} />
       </TouchableOpacity>
