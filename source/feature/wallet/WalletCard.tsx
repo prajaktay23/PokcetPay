@@ -1,25 +1,82 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
+import Ionicons from '@react-native-vector-icons/ionicons';
 
-const WalletCard = () => {
+const WalletCard = ({navigation, route}: any) => {
+  let walletId = "123456789012"
+  let balance = "300.00"
+  const [showWalletId, setShowWalletId] = useState(false);
+
   return (
-    <View style={{ backgroundColor: '#F0FFFF', height: 200, borderWidth: 1, borderColor: 'lightblue', borderRadius: 10 }}>
-      <View style={{ justifyContent: 'space-between', flexDirection: 'column', flex: 1, padding: 16 }}>
+   <View style={styles.card}>
+      <View style={styles.inner}>
         <View>
-          <Text style={{fontSize: 12 }}>Balance</Text>
-          <Text style={{fontSize: 24, fontWeight: 'bold' }}>$3000</Text>
+          <Text style={styles.label}>Balance</Text>
+          <Text style={styles.amount}>₹{balance.toLocaleString()}</Text>
         </View>
+
         <View>
-          <Text style={{fontSize: 12, color: 'darkgrey' }}>Card Number</Text>
-          <Text style={{fontSize: 16, color: 'darkgrey' }}>123456789012</Text>
+          <Text style={styles.label}>Wallet ID</Text>
+          <View style={styles.row}>
+            <Text style={styles.walletId}>
+              {showWalletId ? walletId : walletId.replace(/.(?=.{4})/g, '•')}
+            </Text>
+            <TouchableOpacity onPress={() => setShowWalletId(prev => !prev)}>
+              <Ionicons
+                name={showWalletId ? 'eye-off' : 'eye'}
+                color="gray"
+                size={20}
+                style={styles.icon}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-
     </View>
   )
 }
 
 export default WalletCard
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: '#f2f2fd',
+    height: 200,
+    borderRadius: 20,
+    padding: 16,
+    ...Platform.select({
+      android: { elevation: 4 },
+      ios: {
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowRadius: 10,
+        shadowOffset: { width: 0, height: 4 },
+      },
+    }),
+  },
+  inner: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  label: {
+    fontSize: 12,
+    color: 'gray',
+  },
+  amount: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#1c1c1c',
+  },
+  walletId: {
+    fontSize: 16,
+    color: 'darkgray',
+    letterSpacing: 1.2,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    paddingHorizontal: 12,
+  },
+});

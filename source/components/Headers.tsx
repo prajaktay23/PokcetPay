@@ -8,7 +8,7 @@ const Headers = (props: any) => {
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
       <TouchableOpacity onPress={onPress}>
-        <Image source={require('../assets/left-arrow.png')} style={{ height: 24, width: 24 }} />
+        <Image source={require('../../assets/images/left-arrow.png')} style={{ height: 24, width: 24 }} />
       </TouchableOpacity>
       <Text style={{fontSize: 18}}>{title}</Text>
       <View>

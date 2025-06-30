@@ -44,7 +44,7 @@ const Login = () => {
 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Image source={require('../../assets/logo.png')} style={{ width: 150, height: 150 }} />
+            <Image source={require('../../../assets/images/logo.png')} style={{ width: 150, height: 150 }} />
             <Text style={{ fontSize: 16, color: 'gray', marginBottom: 50, marginTop: 20 }}>Welcome to the Pocket Pay!</Text>
 
             <TextInput
